@@ -3,3 +3,14 @@
 ################################################################################
 
 /.vs/ELGateWay
+/EL.API/bin/Debug/netcoreapp3.1
+/EL.API/obj
+/EL.Domain/bin/Debug/netcoreapp3.1
+/EL.Domain/obj/Debug/netcoreapp3.1
+/EL.Domain/obj
+/EL.Repository/bin/Debug/netcoreapp3.1
+/EL.Repository/obj
+/EL.Service/bin/Debug/netcoreapp3.1
+/EL.Service/obj
+/EL.ViewModel/bin/Debug/netcoreapp3.1
+/EL.ViewModel/obj
