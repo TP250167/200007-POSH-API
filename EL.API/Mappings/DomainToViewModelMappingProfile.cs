@@ -34,8 +34,19 @@ namespace EL.API.Mappings
                     map.MapFrom(src=>Enum.GetNames(typeof(ScheduleType)).ToArray())).ReverseMap();
 
             CreateMap<User, UserViewModel>()
-                .ForMember(vm => vm.SchedulesCreated,
-                    map => map.MapFrom(u => u.SchedulesCreated.Count())).ReverseMap();
+                .ForMember(vm => vm.TotalSchedulesCreated,
+                    map => map.MapFrom(u => u.SchedulesCreated.Count()))
+                .ForMember(vm => vm.Id,
+                    map => map.MapFrom(u => u.Id))
+                .ForMember(vm => vm.UserName,
+                    map => map.MapFrom(u => u.UserName))
+                .ForMember(vm => vm.Name,
+                    map => map.MapFrom(u => u.Name))
+                .ForMember(vm => vm.Avatar,
+                    map => map.MapFrom(u => u.Avatar))
+                .ForMember(vm => vm.Profession,
+                    map => map.MapFrom(u => u.Profession))
+                .ReverseMap();
         }
     }
 }

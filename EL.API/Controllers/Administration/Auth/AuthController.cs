@@ -9,10 +9,11 @@ using EL.Domain.Entities;
 using EL.Service.AuthService;
 using EL.ViewModel.Auth;
 using EL.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EL.API.Controllers.Administration
 {
-  
+    [Route("api/auth")]
     public class AuthController : Controller
     {
         private ILoggerManager _logger;
@@ -29,20 +30,21 @@ namespace EL.API.Controllers.Administration
         //    UserViewModel userViewModel = new UserViewModel();
         //    return Ok(_mapper.Map<User>(userViewModel));
         //}
-
+        [AllowAnonymous]
         [HttpPost("Register")]
-        public async Task<IActionResult> Register(UserRegisterViewModel request)
+        
+        public async Task<IActionResult> Register([FromBody]UserRegisterViewModel request)
         {
-            ServiceResponse<User> response = await _authService.Register(new User {UserName=request.Username },request.Password);
+            ServiceResponse<User> response = await _authService.Register(new User {UserName=request.Username,Name=request.Name },request.Password);
             if (!response.IsSuccess)
             {
                 return BadRequest(response);
             }
             return Ok(response);
         }
-
+        [AllowAnonymous]
         [HttpPost("Login")]
-        public async Task<IActionResult> Login(UserRegisterViewModel request)
+        public async Task<IActionResult> Login([FromBody]UserRegisterViewModel request)
         {
             ServiceResponse<UserViewModel> response = await _authService.Login(
                 request.Username, request.Password);

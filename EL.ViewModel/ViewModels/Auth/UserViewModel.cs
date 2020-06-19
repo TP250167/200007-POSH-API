@@ -9,14 +9,14 @@ namespace EL.ViewModel
 {
     public class UserViewModel : IValidatableObject
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
         public string Token { get; set; }
         public string Name { get; set; }
         public string Avatar { get; set; }
         public string Profession { get; set; }
-        public int SchedulesCreated { get; set; }
+        public int TotalSchedulesCreated { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {

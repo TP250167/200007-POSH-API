@@ -10,6 +10,7 @@ namespace EL.ViewModel.Auth
     {
         public string Username { get; set; }
         public string Password { get; set; }
+        public string Name { get; set; }
         
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {

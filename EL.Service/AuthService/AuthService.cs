@@ -1,4 +1,5 @@
-﻿using EL.Domain.Entities;
+﻿using AutoMapper;
+using EL.Domain.Entities;
 using EL.Repository;
 using EL.ViewModel;
 using Microsoft.Extensions.Configuration;
@@ -18,13 +19,15 @@ namespace EL.Service.AuthService
         private readonly IAuthRepository _authRepository;
         private readonly ILoggerManager _logger;
         //private readonly IConfiguration _configuration;
+        private IMapper _mapper;
         private readonly IOptions<AppSetting> _appSetting;
 
-        public AuthService(IAuthRepository authRepository, ILoggerManager logger, IOptions<AppSetting> appSetting)
+        public AuthService(IAuthRepository authRepository, ILoggerManager logger, IOptions<AppSetting> appSetting,IMapper mapper)
         {
             _authRepository = authRepository;
             _logger = logger;
             _appSetting = appSetting;
+            _mapper = mapper;
         }
 
         public async Task<ServiceResponse<UserViewModel>> Login(string username, string password)
@@ -46,7 +49,10 @@ namespace EL.Service.AuthService
                 }
                 else
                 {
-                    serviceResponse.Data.Token = CreateToken(user);
+                    serviceResponse.Data = _mapper.Map<UserViewModel>(user);
+
+                    serviceResponse.Data.Token= CreateToken(user);
+
                 }
             }
             catch (Exception ex)
