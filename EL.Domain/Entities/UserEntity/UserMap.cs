@@ -17,6 +17,9 @@ namespace EL.Domain.Entities
                 .Property(u => u.Name)
                 .HasMaxLength(100)
                 .IsRequired();
+
+            builder.Property(s => s.ModifiedOn).HasColumnName("MODIFIED_ON");
+            builder.Property(s => s.CreatedOn).HasColumnName("CREATED_ON");
         }
     }
 }

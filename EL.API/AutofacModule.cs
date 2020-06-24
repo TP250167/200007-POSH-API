@@ -1,7 +1,15 @@
 ﻿using Autofac;
 using EL.Repository;
+using EL.Repository.ComplainRepository;
+using EL.Repository.DecisionRepository;
+using EL.Repository.IccEmpRepository;
+using EL.Repository.TimeupRepository;
 using EL.Service;
 using EL.Service.AuthService;
+using EL.Service.ComplainService;
+using EL.Service.DecisionService;
+using EL.Service.IccEmpService;
+using EL.Service.TimeUpService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +42,17 @@ namespace EL.API
             builder.RegisterType<AuthRepository>().As<IAuthRepository>();
             builder.RegisterType<AuthService>().As<IAuthService>();
 
+            builder.RegisterType<DecisionloopRepository>().As<IDecisionloopRepository>();
+            builder.RegisterType<DecisionloopService>().As<IDecisionloopService>();
 
+            builder.RegisterType<TimeRepository>().As<ITimeRepository>();
+            builder.RegisterType<TimeService>().As<ITimeService>();
+
+            builder.RegisterType<CompRepository>().As<ICompRepository>();
+            builder.RegisterType<CompService>().As<ICompService>();
+
+            builder.RegisterType<EmpRepository>().As<IEmpRepository>();
+            builder.RegisterType<EmpService>().As<IEmpService>();
             #endregion
         }
     }
