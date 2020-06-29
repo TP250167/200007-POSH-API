@@ -26,7 +26,7 @@ namespace EL.Service.IccEmpService
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<Icc>> Createdecisionloop(Icc icc)
+        public async Task<ServiceResponse<Icc>> CreateIccEmp(Icc icc)
         {
             ServiceResponse<Icc> serviceResponse = new ServiceResponse<Icc>();
             try
@@ -35,7 +35,7 @@ namespace EL.Service.IccEmpService
                 //we can use AutoMapper here
                 //   Complaint sc = _mapper.Map<Complaint>(complaint1);
                 serviceResponse.Data = await _empRepository.AddData(icc);
-                serviceResponse.Message = "Schedule Created";
+                serviceResponse.Message = "Icc Employee Created";
             }
             catch (Exception ex)
             {

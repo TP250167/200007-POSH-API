@@ -62,7 +62,7 @@ namespace EL.API.Controllers.Decis
 
 
 
-
+        [HttpPost("Create")]
         public async Task<IActionResult> Create([FromBody]Decisionloop decisionloop)
         {
             ServiceResponse<Decisionloop> serviceResponse = new ServiceResponse<Decisionloop>();

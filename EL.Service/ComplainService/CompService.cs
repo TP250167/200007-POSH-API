@@ -26,7 +26,7 @@ namespace EL.Service.ComplainService
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<Complain>> Createdecisionloop(Complain complain)
+        public async Task<ServiceResponse<Complain>> AddComplain(Complain complain)
         {
             ServiceResponse<Complain> serviceResponse = new ServiceResponse<Complain>();
             try

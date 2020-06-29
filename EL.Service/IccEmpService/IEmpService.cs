@@ -8,6 +8,6 @@ namespace EL.Service.IccEmpService
 {
   public  interface IEmpService
     {
-        Task<ServiceResponse<Icc>> Createdecisionloop(Icc icc);
+        Task<ServiceResponse<Icc>> CreateIccEmp(Icc icc);
     }
 }

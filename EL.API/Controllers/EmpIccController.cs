@@ -44,13 +44,13 @@ namespace EL.API.Controllers
                 serviceResponse.Message = "Invalid schedule object sent from client.";
                 return BadRequest(serviceResponse);
             }
-            serviceResponse = await _IempService.Createdecisionloop(icc);
+            serviceResponse = await _IempService.CreateIccEmp(icc);
             if (serviceResponse == null)
             {
                 return BadRequest(serviceResponse);
             }
 
-            serviceResponse.Message = "Schedule Successfully Created";
+            serviceResponse.Message = "Employee Successfully Created";
             return Ok(serviceResponse);
 
         }

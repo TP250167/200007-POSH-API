@@ -8,6 +8,8 @@ using EL.Domain.Entities.DecisionloopEntity;
 using EL.Domain.Entities.Time;
 using EL.Domain.Entities.comp;
 using EL.Domain.Entities.Iccemp;
+using EL.Domain.GamePosh;
+using EL.Domain.Entities.Team;
 
 namespace EL.Repository
 {
@@ -20,6 +22,8 @@ namespace EL.Repository
         public DbSet<Timeup> Timeups { get; set; }
         public DbSet<Complain> Complains { get; set; }
         public DbSet<Icc> Iccs { get; set; }
+        public DbSet<Game> Games { get; set; }
+        public DbSet<TeamEmp> TeamEmps { get; set; }
         public ELContext(DbContextOptions<ELContext> options) : base(options)
         {
         }
@@ -37,6 +41,8 @@ namespace EL.Repository
             new TimeupMap(modelBuilder.Entity<Timeup>());
             new IccMap(modelBuilder.Entity<Icc>());
             new ComplainMap(modelBuilder.Entity<Complain>());
+            new GameMap(modelBuilder.Entity<Game>());
+            new TeamEmpMap(modelBuilder.Entity<TeamEmp>());
 
         }
     }

@@ -38,10 +38,14 @@ namespace EL.Service.TimeUpService
                     serviceResponse.Message = "Username already exist";
                     return serviceResponse;
                 }
-             //   CreatePasswordHash(password, out byte[] passwordHash, out byte[] passwordSalt);
+                //   CreatePasswordHash(password, out byte[] passwordHash, out byte[] passwordSalt);
 
-               // user.PasswordHash = passwordHash;
-             //   user.PasswordSalt = passwordSalt;
+                // user.PasswordHash = passwordHash;
+                //   user.PasswordSalt = passwordSalt;
+                timeup.CreatedOn = Convert.ToDateTime( DateTime.Now);
+
+                timeup.TimeStart = Convert.ToDateTime( DateTime.Now.ToShortTimeString());
+                timeup.TimeEnd =DateTime.Now.AddHours(1); 
 
                 serviceResponse.Data = await _timeRepository.AddData(timeup);
                 serviceResponse.Message = "Registered successfully";

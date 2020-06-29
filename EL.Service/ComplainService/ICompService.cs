@@ -8,6 +8,6 @@ namespace EL.Service.ComplainService
 {
    public interface ICompService
     {
-        Task<ServiceResponse<Complain>> Createdecisionloop(Complain complain);
+        Task<ServiceResponse<Complain>> AddComplain(Complain complain);
     }
 }

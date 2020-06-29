@@ -45,12 +45,15 @@ namespace EL.API.Controllers.TimeSequence
         [HttpPost("Register")]
         public async Task<IActionResult> Register([FromBody]TimeUpCreateViewModel request)
         {
-            ServiceResponse<Timeup> response = await _timeService.Register(new Timeup { Questionname = request.Questionname, Option1 = request.Option1 }, request.Option2);
+            ServiceResponse<Timeup> response = await _timeService.Register(new Timeup { Questionname = request.Questionname, QuestionId=request.QuestionId, Option1 = request.Option1, Option2 = request.Option2, Result =request.Result }, request.Option2);
+           // ServiceResponse<Timeup> response = await _timeService.Register(new Timeup { Questionname = request.Questionname, Option1 = request.Option1 }, request.Option2);
             if (!response.IsSuccess)
             {
                 return BadRequest(response);
             }
-            return Ok(response);
+          //  response.Data = request.Id;
+           // return Ok(response);
+           return Ok(request);
         }
     }
 }

@@ -46,7 +46,7 @@ namespace EL.API.Controllers.Compl
                 serviceResponse.Message = "Invalid schedule object sent from client.";
                 return BadRequest(serviceResponse);
             }
-            serviceResponse = await _ICompService.Createdecisionloop(complain);
+            serviceResponse = await _ICompService.AddComplain(complain);
             if (serviceResponse == null)
             {
                 return BadRequest(serviceResponse);

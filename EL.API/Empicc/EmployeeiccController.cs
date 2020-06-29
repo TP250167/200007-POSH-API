@@ -46,29 +46,29 @@ namespace EL.API.Empicc
                 serviceResponse.Message = "Invalid schedule object sent from client.";
                 return BadRequest(serviceResponse);
             }
-            serviceResponse = await _IempService.Createdecisionloop(icc);
+            serviceResponse = await _IempService.CreateIccEmp(icc);
             if (serviceResponse == null)
             {
                 return BadRequest(serviceResponse);
             }
 
-            serviceResponse.Message = "Schedule Successfully Created";
+            serviceResponse.Message = "Icc Employee Successfully Created";
             return Ok(serviceResponse);
 
         }
 
 
-        //[AllowAnonymous]
-        //[HttpPost("CreateEmployee")]
-        //public async Task<IActionResult> CreateEmployee([FromBody]EmployeeIccViewModel request)
-        //{
-        //    ServiceResponse<Icc> response = await _IempService.Createdecisionloop(new Icc { Iccempname = request.Iccempname, Iccempjobtitle = request.Iccempjobtitle, Iccempemail = request.Iccempemail}, request.Iccempphoneno);
-        //    if (!response.IsSuccess)
-        //    {
-        //        return BadRequest(response);
-        //    }
-        //    return Ok(response);
-        //}
+        [AllowAnonymous]
+        [HttpPost("CreateEmployee")]
+        public async Task<IActionResult> CreateEmployee([FromBody]EmployeeIccViewModel empIccVM)
+        {
+            ServiceResponse<Icc> response = await _IempService.CreateIccEmp(new Icc { Iccempname = empIccVM.Iccempname, Iccempjobtitle = empIccVM.Iccempjobtitle, Iccempemail = empIccVM.Iccempemail });
+            if (!response.IsSuccess)
+            {
+                return BadRequest(response);
+            }
+            return Ok(response);
+        }
 
     }
 

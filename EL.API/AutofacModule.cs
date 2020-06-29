@@ -2,13 +2,17 @@
 using EL.Repository;
 using EL.Repository.ComplainRepository;
 using EL.Repository.DecisionRepository;
+using EL.Repository.EmpTeamRepository;
 using EL.Repository.IccEmpRepository;
+using EL.Repository.poshGameRepository;
 using EL.Repository.TimeupRepository;
 using EL.Service;
 using EL.Service.AuthService;
 using EL.Service.ComplainService;
 using EL.Service.DecisionService;
+using EL.Service.EmpTeamService;
 using EL.Service.IccEmpService;
+using EL.Service.poshGameService;
 using EL.Service.TimeUpService;
 using System;
 using System.Collections.Generic;
@@ -53,6 +57,13 @@ namespace EL.API
 
             builder.RegisterType<EmpRepository>().As<IEmpRepository>();
             builder.RegisterType<EmpService>().As<IEmpService>();
+
+            builder.RegisterType<GameRepository>().As<IGameRepository>();
+            builder.RegisterType<GameService>().As<IGameService>();
+
+            builder.RegisterType<TeamRepository>().As<ITeamRepository>();
+            builder.RegisterType<TeamService>().As<ITeamService>();
+
             #endregion
         }
     }
