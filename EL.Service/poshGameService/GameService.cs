@@ -192,9 +192,9 @@ namespace EL.Service.poshGameService
             serviceResponse.Data = tc;
             return tc;
         }
-        public async Task<ServiceResponse<Game>> Getgamcount()
+        public  ServiceResponse<int> GetGameCount()
         {
-            ServiceResponse<Game> serviceResponse = new ServiceResponse<Game>();
+            ServiceResponse<int> serviceResponse = new ServiceResponse<int>();
             try
             {
               //  var i = totalcount();
@@ -203,11 +203,11 @@ namespace EL.Service.poshGameService
 
 
               //  ServiceResponse<TeamEmp> serviceResponse = new ServiceResponse<TeamEmp>();
-                var total = _gameRepository.Count();
-                GameCount tc1 = new GameCount();
-                Game tc11 = new Game();
-                tc11.count = total;
-                serviceResponse.Data = tc11;
+                var total =  _gameRepository.Count();
+                //GameCount tc1 = new GameCount();
+                //Game tc11 = new Game();
+                //tc11.count = total;
+                serviceResponse.Data = total;
                 serviceResponse.Message = "Game Total Count:" + total;
 
                 //var i = totalcount();

@@ -13,7 +13,7 @@ namespace EL.Service.poshGameService
 
         Task<ServiceResponse<Game>> UpdateGame(Game game);
 
-        Task<ServiceResponse<Game>> Getgamcount();
+        ServiceResponse<int> GetGameCount();
 
         Task<ServiceResponse<IEnumerable<Game>>> GetAllGame();
 

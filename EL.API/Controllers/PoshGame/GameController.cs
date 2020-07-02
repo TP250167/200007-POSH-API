@@ -96,12 +96,12 @@ namespace EL.API.Controllers.PoshGame
 
 
         [HttpGet("GetGameCount")]
-        public async Task<IActionResult> GetGameCount()
+        public  IActionResult GetGameCount()
         {
           //  ServiceResponse<IEnumerable<Game>> serviceResponse = new ServiceResponse<IEnumerable<Game>>();
-            ServiceResponse<Game> serviceResponse = new ServiceResponse<Game>();
-            serviceResponse = await _gameService.Getgamcount();
-            if (serviceResponse.Data == null)
+            ServiceResponse<int> serviceResponse = new ServiceResponse<int>();
+            serviceResponse =  _gameService.GetGameCount();
+            if (serviceResponse==null)
             {
                 return NotFound(serviceResponse);
             }
