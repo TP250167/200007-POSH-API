@@ -49,6 +49,7 @@ namespace EL.Repository
         {
             return await _context.Set<T>().AsNoTracking().FirstOrDefaultAsync(predicate);
         }
+       
 
         public async Task<T> GetSingle(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties)
         {

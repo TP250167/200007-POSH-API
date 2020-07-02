@@ -16,6 +16,7 @@ namespace EL.ViewModel
         public string Name { get; set; }
         public string Avatar { get; set; }
         public string Profession { get; set; }
+        public string Cpassword { get; set; }
         public int TotalSchedulesCreated { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)

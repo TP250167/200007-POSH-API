@@ -17,6 +17,8 @@ namespace EL.Domain.Entities {
         public string Name { get; set; }
         public string Avatar { get; set; }
         public string Profession { get; set; }
+        public DateTime? ModifiedOn { get; set; }
+        public DateTime? CreatedOn { get; set; }
         public ICollection<Schedule> SchedulesCreated { get; set; }
         public ICollection<Attendee> SchedulesAttended { get; set; }
     }

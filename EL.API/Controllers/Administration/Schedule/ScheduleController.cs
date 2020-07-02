@@ -63,7 +63,7 @@ namespace EL.API.Controllers.Administration
 
         #region Post Methods
 
-        [HttpPost]
+        [HttpPost("Createschedule")]
         public async Task<IActionResult> Create([FromBody]Schedule schedule)
         {
             ServiceResponse<Schedule> serviceResponse = new ServiceResponse<Schedule>();

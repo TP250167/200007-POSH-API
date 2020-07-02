@@ -4,6 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using EL.Domain.Entities;
+using EL.Domain.Entities.DecisionloopEntity;
+using EL.Domain.Entities.Time;
+using EL.Domain.Entities.comp;
+using EL.Domain.Entities.Iccemp;
+using EL.Domain.GamePosh;
+using EL.Domain.Entities.Team;
 
 namespace EL.Repository
 {
@@ -12,6 +18,12 @@ namespace EL.Repository
         public DbSet<Schedule> Schedules { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Attendee> Attendees { get; set; }
+        public DbSet<Decisionloop> Decisionloops { get; set; }
+        public DbSet<Timeup> Timeups { get; set; }
+        public DbSet<Complain> Complains { get; set; }
+        public DbSet<Icc> Iccs { get; set; }
+        public DbSet<Game> Games { get; set; }
+        public DbSet<TeamEmp> TeamEmps { get; set; }
         public ELContext(DbContextOptions<ELContext> options) : base(options)
         {
         }
@@ -25,6 +37,12 @@ namespace EL.Repository
             new ScheduleMap(modelBuilder.Entity<Schedule>());
             new UserMap(modelBuilder.Entity<User>());
             new AttendeeMap(modelBuilder.Entity<Attendee>());
+            new DecisionloopMap(modelBuilder.Entity<Decisionloop>());
+            new TimeupMap(modelBuilder.Entity<Timeup>());
+            new IccMap(modelBuilder.Entity<Icc>());
+            new ComplainMap(modelBuilder.Entity<Complain>());
+            new GameMap(modelBuilder.Entity<Game>());
+            new TeamEmpMap(modelBuilder.Entity<TeamEmp>());
 
         }
     }

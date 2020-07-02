@@ -38,7 +38,7 @@ namespace EL.Service
             {
                 ScheduleViewModel scheduleView = new ScheduleViewModel();
                 //we can use AutoMapper here
-             Schedule sc=   _mapper.Map<Schedule>(scheduleView);
+           //  Schedule sc=   _mapper.Map<Schedule>(scheduleView);
                 serviceResponse.Data = await _scheduleRepository.AddData(schedule);
                 serviceResponse.Message = "Schedule Created";
             }

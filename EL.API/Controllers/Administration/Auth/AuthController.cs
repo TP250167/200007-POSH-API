@@ -10,10 +10,11 @@ using EL.Service.AuthService;
 using EL.ViewModel.Auth;
 using EL.ViewModel;
 using Microsoft.AspNetCore.Authorization;
+using EL.ViewModel.ViewModels.Auth;
 
 namespace EL.API.Controllers.Administration
 {
-    [Route("api/auth")]
+    [Route("api/Auth")]
     public class AuthController : Controller
     {
         private ILoggerManager _logger;
@@ -48,6 +49,35 @@ namespace EL.API.Controllers.Administration
         {
             ServiceResponse<UserViewModel> response = await _authService.Login(
                 request.Username, request.Password);
+            if (!response.IsSuccess)
+            {
+                return BadRequest(response);
+            }
+            return Ok(response);
+        }
+
+
+        //[AllowAnonymous]
+        //[HttpGet("ResetPassword")]
+        //public async Task<IActionResult> ResetPassword([FromBody]UserRegisterViewModel request)
+        //{
+        //    ServiceResponse<UserViewModel> response = await _authService.ResetPassword(
+        //        request.Username, request.Password);
+        //    if (!response.IsSuccess)
+        //    {
+        //        return BadRequest(response);
+        //    }
+        //    return Ok(response);
+        //}
+
+        [AllowAnonymous]
+        [HttpPost("ResetPassword")]
+        public async Task<IActionResult> ResetPassword([FromBody]UserResetViewModel request)
+        //public async Task<IActionResult> ResetPassword([FromBody]UserRegisterViewModel userResetViewModel)
+        {
+            // ServiceResponse<User> response = await _authService.ResetPassword(new User { UserName = request.Password }, request.Password,request.Confirmpassword);
+         //    ServiceResponse<User> response = await _authService.ResetPassword(new User {Id= userResetViewModel.Id }, userResetViewModel.Password, userResetViewModel.Cpassword);
+            ServiceResponse<User> response = await _authService.ResetPassword(request);
             if (!response.IsSuccess)
             {
                 return BadRequest(response);
