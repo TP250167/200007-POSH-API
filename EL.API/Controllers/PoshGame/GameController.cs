@@ -40,19 +40,6 @@ namespace EL.API.Controllers.PoshGame
                 return BadRequest(response);
             }
             return Ok(response);
-
-            // // ServiceResponse<Game> response = new ServiceResponse<Game>();
-            //  //  ServiceResponse<Game> response = await _gameService.Creategame(gameAddViewModel);
-            //  //  ServiceResponse<User> response = await _authService.ResetPassword(request);
-            ////  response = await _gameService.Creategame(gameAddViewModel);
-
-            //  ServiceResponse<Game> response = await _gameService.Creategame(gameAddViewModel);
-            //  //  ServiceResponse<Game> response = await _gameService.Creategame(new Game { Name = gameAddViewModel.Name, Name = request.Name }, request.Password);
-            //  if (!response.IsSuccess)
-            //  {
-            //      return BadRequest(response);
-            //  }
-            //  return Ok(response);
         }
 
 
